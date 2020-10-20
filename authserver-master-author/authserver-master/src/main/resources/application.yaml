@@ -1,0 +1,28 @@
+server:
+  port: 9000
+
+security:
+  jwt:
+    key-store: classpath:server-keystore.jks
+    key-store-password: 888888
+    key-pair-alias: authserver
+    key-pair-password: 888888
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+      FAIL_ON_EMPTY_BEANS: true
+  datasource:
+    url: 'jdbc:mysql://52.191.185.113:3306/AuthServer'
+    username: 'team6'
+    password: 'team6'
+    driver-class-name: 'com.mysql.cj.jdbc.Driver'
+    hikari:
+      max-lifetime: 30000
+      minimum-idle: 3
+      maximum-pool-size: 10
+      connection-test-query: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
